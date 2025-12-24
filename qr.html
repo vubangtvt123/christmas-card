@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Giáng Sinh</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+</head>
+<body style="text-align:center;font-family:Arial;margin-top:50px">
+
+<h2>🎄 Quét mã QR để mở thiệp Giáng Sinh 🎄</h2>
+
+<div id="qrcode"></div>
+
+<script>
+    new QRCode(document.getElementById("qrcode"), {
+        text: "https://your-domain.com/christmas-card/index.html",
+        width: 200,
+        height: 200
+    });
+</script>
+
+</body>
+</html>
