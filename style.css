@@ -1,3 +1,4 @@
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -14,11 +15,10 @@ body {
     background: #000;
 }
 
-/* VIDEO NỀN */
+/* ================= VIDEO NỀN ================= */
 .bg-video {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -32,70 +32,75 @@ body {
     z-index: -1;
 }
 
-/* ===== PHONG THƯ ===== */
+/* ================= PHONG THƯ ================= */
 .envelope {
     position: relative;
-    width: 370px;
-    height: 250px;
+    width: 80vw;
+    max-width: 370px;
+    aspect-ratio: 37 / 25;
     cursor: pointer;
     perspective: 1000px;
 }
 
-/* THƯ */
+/* ================= THƯ ================= */
 .letter {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
-    width: 350px;
-    height: 160px;
-    background: #fff;
-    border-radius: 8px;
-    padding: 16px;
+    bottom: 6%;
+    left: 5%;
+    width: 90%;
+    height: 65%;
+
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 18px;
+
     text-align: center;
     line-height: 1.6;
+    font-size: 15px;
     color: #333;
-    box-shadow: 0 12px 30px rgba(0,0,0,.35);
 
-    transform: translateY(80px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.35);
+
+    transform: translateY(50%);
     opacity: 0;
     transition: all 1s ease;
-    z-index: 10; /* 🔥 QUAN TRỌNG */
+    z-index: 10;
 }
-
 
 /* KHI MỞ → THƯ BAY LÊN */
 .envelope.open .letter {
-    transform: translateY(-160px); /* bay cao hơn */
+    transform: translateY(-95%);
     opacity: 1;
 }
 
-
-/* MẶT SAU */
+/* ================= MẶT SAU ================= */
 .envelope-back {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: #c0392b;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 14px 14px;
     z-index: 0;
 }
 
-/* MẶT TRƯỚC */
+/* ================= MẶT TRƯỚC ================= */
 .envelope-front {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: #e74c3c;
-    clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(
+        0 0,
+        50% 55%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
     z-index: 2;
 }
 
-
-/* NẮP PHONG THƯ */
+/* ================= NẮP PHONG THƯ ================= */
 .envelope-flap {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: #ff6b5c;
     clip-path: polygon(0 0, 50% 60%, 100% 0);
     transform-origin: top;
@@ -106,4 +111,12 @@ body {
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
     z-index: 1;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+    .letter {
+        font-size: 13px;
+        padding: 14px;
+    }
 }
